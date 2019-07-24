@@ -2,6 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="vn.ptt.intentservice">
 
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -25,6 +31,24 @@
         <service
             android:name=".DemoService"
             android:exported="false" />
+
+
+        <receiver
+            android:name=".BootDeviceService.BootDeviceReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+
+
+        <service
+            android:name=".BootDeviceService.RunAfterBootService"
+            android:enabled="true"
+            android:exported="true"></service>
+
+
 
     </application>
 
