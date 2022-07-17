@@ -8,6 +8,8 @@ import android.content.Intent;
 import android.util.Log;
 import android.widget.Toast;
 
+import vn.ptt.intentservice.DemoService;
+
 public class BootDeviceReceiver extends BroadcastReceiver {
 
     private static final String TAG_BOOT_BROADCAST_RECEIVER = "BOOT_BROADCAST_RECEIVER";
@@ -27,7 +29,11 @@ public class BootDeviceReceiver extends BroadcastReceiver {
         {
             //startServiceDirectly(context);
 
-            startServiceByAlarm(context);
+            //startServiceByAlarm(context);
+
+            Intent i = new Intent(context, DemoService.class);
+            context.startService(i);
+
         }
     }
 

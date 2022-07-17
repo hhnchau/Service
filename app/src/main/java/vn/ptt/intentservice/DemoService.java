@@ -33,14 +33,14 @@ public class DemoService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
 
-        MySchedule mySchedule = new MySchedule(10000, new MySchedule.ScheduleCallback() {
+        MySchedule mySchedule = new MySchedule(5000, new MySchedule.ScheduleCallback() {
             @Override
             public void onSchedule() {
-                isAppOnForeground(DemoService.this);
-                //if (isAppOnForeground(DemoService.this))
-                    //Toast.makeText(DemoService.this, "True: is running", Toast.LENGTH_SHORT).show();
-                //else
-                    //Toast.makeText(DemoService.this, "False: Stopped", Toast.LENGTH_SHORT).show();
+                //isAppOnForeground(DemoService.this);
+                if (isAppOnForeground(DemoService.this))
+                    Toast.makeText(DemoService.this, "True: is running", Toast.LENGTH_SHORT).show();
+                else
+                    Toast.makeText(DemoService.this, "False: Stopped", Toast.LENGTH_SHORT).show();
             }
         });
         mySchedule.loop();

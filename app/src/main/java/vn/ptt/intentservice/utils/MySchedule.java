@@ -3,9 +3,9 @@ package vn.ptt.intentservice.utils;
 import android.os.Handler;
 
 public class MySchedule {
-    private Runnable runnable;
-    private Handler handler;
-    private int schedule;
+    private final Runnable runnable;
+    private final Handler handler;
+    private final int schedule;
     private boolean loop;
 
     public interface ScheduleCallback {
